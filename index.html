@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mensaje de amistad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('bosque.jpg') center / cover no-repeat;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 2em;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      opacity: 0;
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #ffd369;
+      color: #333;
+      position: relative;
+      z-index: 10;
+    }
+
+    button:hover {
+      background-color: #ffbe33;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pétalos de cerezo */
+    .petals {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 5;
+    }
+
+    .petal {
+      position: absolute;
+      top: -10%;
+      width: 14px;
+      height: 14px;
+      background: rgba(255, 183, 197, 0.85);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(45deg);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(80px) translateY(110vh) rotate(360deg);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1> 😁 GRACIAS POR TODO 😁 </h1>
+    <p>
+Buenas noches Florita disculpa que sea tarde se que nos vamos a seguir viendo alguna vez 
+y hoy la hora se fue rápido tambien no pude hablar no sabia por donde comenzar, pero bueno 
+queria agradecerte por haberme llevado al taller mal que bien estoy trabajando gracias a ti 
+y debido a que llegue ahí he aprendido mucho y he pasado experiencias de todo tipo tanto buenas 
+como tambien malas 😅 he conocido gente de todo tipo he incluso ni me lo imaginaba pero me ha 
+llegado a gustar la Ximena es una buena chica lastima no es correspondido 😅 eso se debe a los
+muchos consejos y recomendaciones que me has dado y de verdad aprecio y valoro de corazon cada
+uno de ellos. Incluso me haz regañado cuando era necesario 😅 verdaderamente aprecio mucho tu 
+amistad y te considero básicamente mi mejor amiga tu me has visto reír, renegar, protestar e 
+incluso me haz visto llorar no soy muy bueno con las despedidas más aun cuando se trata de 
+personas que en verdad aprecio y quiero, puede que sea la razon de que tengo miedo de ver a la 
+Ximena pero por ti hare el esfuerzo en la reunion jeje me disculpo si alguna vez te he hecho 
+sentir mal o me porte mal contigo. En verdad espero que te vaya super en tu nuevo trabajo y pues 
+si se da vamos a volver a trabajar juntos y si no ps siempre que necesites mi apoyo solo me 
+avisas y hare todo lo posible para poder ayudarte, gracias por todo y sigamos adelante.
+    </p>
+
+    <button onclick="toggleMusic()">▶ Reproducir / Pausar música</button>
+
+    <audio id="music" loop autoplay>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </div>
+
+  <div class="petals">
+    <div class="petal" style="left:10%; animation-duration: 12s;"></div>
+    <div class="petal" style="left:20%; animation-duration: 14s;"></div>
+    <div class="petal" style="left:35%; animation-duration: 11s;"></div>
+    <div class="petal" style="left:50%; animation-duration: 15s;"></div>
+    <div class="petal" style="left:65%; animation-duration: 13s;"></div>
+    <div class="petal" style="left:80%; animation-duration: 16s;"></div>
+  </div>
+
+  <script>
+    const music = document.getElementById('music');
+    function toggleMusic() {
+      if (music.pa
