@@ -123,10 +123,39 @@ avisas y hare todo lo posible para poder ayudarte, gracias por todo y sigamos ad
 
     <button onclick="toggleMusic()">▶ Reproducir / Pausar música</button>
 
-    <audio id="music" loop>
-      <source src="tema.mp3" type="audio/mpeg" />
-      Tu navegador no soporta audio HTML5.
-    </audio>
+    <audio id="music" loop autoplay muted>
+  <source src="tema.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<button id="playBtn">▶ Reproducir / Pausar música</button>
+
+<script>
+  const music = document.getElementById('music');
+  const btn = document.getElementById('playBtn');
+
+  // Intentar autoplay (funciona silenciado)
+  music.play().catch(err => {
+    console.log("Autoplay bloqueado, esperando interacción");
+  });
+
+  // Cuando el usuario hace clic en cualquier parte, quitar silencio y reproducir
+  document.body.addEventListener('click', () => {
+    music.muted = false; // Quita el silencio
+    music.play();
+  }, { once: true });
+
+  // Botón para pausar/reproducir manualmente
+  btn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      btn.textContent = "⏸ Pausar música";
+    } else {
+      music.pause();
+      btn.textContent = "▶ Reproducir música";
+    }
+  });
+</script>
   </div>
 
   <div class="petals">
